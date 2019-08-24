@@ -28,7 +28,7 @@ public class Character_Controller : MonoBehaviour
             
             move_direction *= ground_speed;
 
-            if (Input.GetButton("Jump")) {
+            if (Input.GetButton("Jump") && can_jump) {
                 move_direction.y = jump_speed;
             }
 
