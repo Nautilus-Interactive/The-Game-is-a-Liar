@@ -14,6 +14,8 @@ public class Character_Controller : MonoBehaviour
     public float mouse_sensitivity = 100.0f;
     private Vector3 move_direction = Vector3.zero;
 
+    private float head_rotation = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +51,16 @@ public class Character_Controller : MonoBehaviour
 
         if (mouse_turn) {
             Vector3 body_rotate = new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * mouse_sensitivity;
-            Vector3 head_rotate = new Vector3(-Input.GetAxis("Mouse Y"), 0.0f, 0.0f) * mouse_sensitivity;
+            //Vector3 head_rotate = new Vector3(-Input.GetAxis("Mouse Y"), 0.0f, 0.0f) * mouse_sensitivity;
 
             transform.Rotate(body_rotate * Time.deltaTime);
-            head.transform.Rotate(head_rotate * Time.deltaTime);
+
+            //head.transform.Rotate(head_rotate * Time.deltaTime);
+
+            head_rotation -= Input.GetAxis("Mouse Y") * mouse_sensitivity/10;
+            head_rotation = Mathf.Clamp(head_rotation, -90, 90);
+
+            head.transform.localEulerAngles = new Vector3(head_rotation, transform.localEulerAngles.y, transform.localEulerAngles.z);
         }
         
         move_direction = transform.TransformDirection(move_direction);
