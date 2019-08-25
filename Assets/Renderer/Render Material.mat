@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Render Material
   m_Shader: {fileID: 4800000, guid: 7de009268df08ba40b836067bab59404, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: POSTERIZE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -67,6 +67,7 @@ Material:
     - _ColorCount: 10
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Delta: 0.001352
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -77,7 +78,10 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineThickness: 0.002893
     - _OutlineWidth: 1.1
+    - _Poseterize: 1
+    - _PosterizationCount: 8
     - _QueueOffset: 0
+    - _Raw: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
