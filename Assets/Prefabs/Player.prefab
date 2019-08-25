@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 9019566518517454783}
   - component: {fileID: 7479867151101547972}
   - component: {fileID: 2230198696717675816}
+  - component: {fileID: 4416326754522873048}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -159,6 +160,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!81 &4416326754522873048
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119260890687009215}
+  m_Enabled: 1
 --- !u!1 &8763762599232126488
 GameObject:
   m_ObjectHideFlags: 0

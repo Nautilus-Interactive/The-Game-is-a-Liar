@@ -28,6 +28,7 @@ public class Character_Controller : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
             Vector3 point = hit.point;
+            Debug.Log(point);
             point.y = body.transform.position.y;
             Vector3 targetDir = point - body.transform.position;
 
