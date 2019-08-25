@@ -5,11 +5,11 @@ using UnityEngine;
 public class Character_Controller : MonoBehaviour
 {
     CharacterController character_controller;
-    public bool can_jump = true;
-    public float air_speed = 4.0f;
-    public float ground_speed = 6.0f;
-    public float jump_speed = 8.0f;
+    public float move_speed = 6.0f;
+    public float rotate_speed = 2.0f;
+
     private Vector3 move_direction = Vector3.zero;
+    private Vector3 look_at = Vector3.zero;
     
     // Start is called before the first frame update
     void Start()
@@ -18,30 +18,29 @@ public class Character_Controller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        float temp = move_direction.y;
+    void Update() {
 
-        move_direction = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        move_direction = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical")) * move_speed;
         
-        if (character_controller.isGrounded) {
-            
-            move_direction *= ground_speed;
-
-            if (Input.GetButton("Jump") && can_jump) {
-                move_direction.y = jump_speed;
-            }
-
-        }
-        else {
-            move_direction *= air_speed;
-            move_direction.y = temp;
-        }
-
         move_direction.y += Physics.gravity.y * Time.deltaTime;
-                
-        move_direction = transform.TransformDirection(move_direction);
-        character_controller.Move(move_direction * Time.deltaTime);
 
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit)) {
+
+            Vector3 point = hit.point;
+            point.y = transform.position.y;
+            Vector3 targetDir = point - transform.position;
+            
+            float step = rotate_speed * Time.deltaTime;
+
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+            Debug.DrawRay(transform.position, newDir, Color.red);
+            
+            transform.rotation = Quaternion.LookRotation(newDir);
+        }
+
+        //move_direction = transform.TransformDirection(move_direction);
+        character_controller.Move(move_direction * Time.deltaTime);
     }
 }
