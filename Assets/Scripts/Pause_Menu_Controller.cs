@@ -12,19 +12,13 @@ public class Pause_Menu_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             pause_menu.SetActive(true);
-            Game_Variables.pause_game();
-            _crosshair.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            Global_Functions.pause_game();
         }
     }
 
     public void Resume() {
         pause_menu.SetActive(false);
-        Game_Variables.resume_game();
-        _crosshair.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Global_Functions.resume_game();
     }
 
     public void MainMenu() {
