@@ -5,7 +5,7 @@ using UnityEngine;
 public static class Game_Variables
 {
     public static bool paused = false;
-
+    
     public static void start_game() {
         resume_game();
     }
