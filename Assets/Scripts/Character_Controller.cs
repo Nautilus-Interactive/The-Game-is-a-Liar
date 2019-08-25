@@ -31,7 +31,6 @@ public class Character_Controller : MonoBehaviour
 
             float step = rotate_speed * Time.deltaTime;
             Vector3 newDir = Vector3.RotateTowards(body.transform.forward, targetDir, step, 0.0f);
-            //Debug.DrawRay(transform.position, newDir, Color.red);
 
             body.transform.rotation = Quaternion.LookRotation(newDir);
         }
