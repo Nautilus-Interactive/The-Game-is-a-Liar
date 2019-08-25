@@ -20,6 +20,9 @@ public class Character_Controller : MonoBehaviour
     void Start()
     {
         character_controller = GetComponent<CharacterController>();
+        //Keeps the cursor from being a distraction
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -48,6 +51,7 @@ public class Character_Controller : MonoBehaviour
         }
 
         move_direction.y += Physics.gravity.y * Time.deltaTime;
+
 
         if (mouse_turn) {
             Vector3 body_rotate = new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * mouse_sensitivity;
