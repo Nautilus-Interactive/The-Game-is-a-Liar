@@ -8,7 +8,7 @@ public class Menu_Controller : MonoBehaviour
     public GameObject credits;
     public void StartGame() {
         Debug.Log("Loading Game Scene...");
-        Game_Variables.start_game();
+        Global_Functions.start_game();
         SceneManager.LoadScene("Game");
     }
 

@@ -39,8 +39,7 @@ public class Character_Controller : MonoBehaviour
             
             transform.rotation = Quaternion.LookRotation(newDir);
         }
-
-        //move_direction = transform.TransformDirection(move_direction);
+        
         character_controller.Move(move_direction * Time.deltaTime);
     }
 }

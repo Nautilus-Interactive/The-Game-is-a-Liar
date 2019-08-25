@@ -11,13 +11,13 @@ public class Pause_Menu_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             pause_menu.SetActive(true);
-            Game_Variables.pause_game();
+            Global_Functions.pause_game();
         }
     }
 
     public void Resume() {
         pause_menu.SetActive(false);
-        Game_Variables.resume_game();
+        Global_Functions.resume_game();
     }
 
     public void MainMenu() {
