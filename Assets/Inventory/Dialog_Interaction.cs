@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory_Controller : MonoBehaviour
+public class Dialog_Interaction : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
