@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class Evidence_Controller : MonoBehaviour
+public class Interaction_Controller : MonoBehaviour
 {
     public float max_distance = 3.0f;
 
