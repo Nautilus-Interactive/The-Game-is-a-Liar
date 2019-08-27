@@ -3,31 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Pause_Menu_Controller : MonoBehaviour
+public class Pause : MonoBehaviour
 {
-    public GameObject pause_menu;
-    public GameObject _crosshair;
+    public GameObject UI;
+
+    void Start() {
+      StartTime();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            pause_menu.SetActive(true);
-            Global_Functions.pause_game();
+            UI.SetActive(true);
+            StopTime();
         }
     }
 
     public void Resume() {
-        pause_menu.SetActive(false);
-        Global_Functions.resume_game();
+        UI.SetActive(false);
+        StartTime();
     }
 
     public void MainMenu() {
         Debug.Log("Loading Menu Scene...");
+        StartTime();
         SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame() {
         Debug.Log("Quitting Game...");
         Application.Quit();
+    }
+
+    private void StopTime() {
+      Time.timeScale = 0;
+    }
+
+    private void StartTime() {
+      Time.timeScale = 1;
     }
 }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menu_Controller : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public GameObject credits;
+
     public void StartGame() {
         Debug.Log("Loading Game Scene...");
-        Global_Functions.start_game();
         SceneManager.LoadScene("Game");
     }
 
