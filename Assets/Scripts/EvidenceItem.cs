@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EvidenceItem : MonoBehaviour, InventoryItem {
-
+    
     public GameObject UI;
+
+    public string Name => throw new System.NotImplementedException();
+
+    public Sprite Image => throw new System.NotImplementedException();
 
     public void Start() {
         UI.SetActive(false);
@@ -25,4 +29,7 @@ public class EvidenceItem : MonoBehaviour, InventoryItem {
         UI.SetActive(false);
     }
 
+    public void OnPickup() {
+        throw new System.NotImplementedException();
+    }
 }

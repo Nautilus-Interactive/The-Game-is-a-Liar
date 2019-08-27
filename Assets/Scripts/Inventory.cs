@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public class Inventory : MonoBehaviour
       item.OnPickup();
 
       if (ItemAdded != null) {
-        ItemAdded.(this, new InventoryItemEventArgs(item));
+        ItemAdded(this, new InventoryItemEventArgs(item));
       }
     }
   }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,11 @@ public interface InventoryItem {
 }
 
 public class InventoryItemEventArgs : EventArgs {
-  public InventoryItem item;
+
+  public InventoryItem Item;
 
   public InventoryItemEventArgs(InventoryItem item) {
     Item = item;
   }
+
 }

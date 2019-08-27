@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ public class Mouse : MonoBehaviour {
     private void MouseOver(GameObject gameObject) {
         gameObject.SendMessage("Over");
         if (Input.GetMouseButtonUp(0)) {
-          Inventory.AddEvicence(gameObject.getComponent<EvidenceItem>());
+          Inventory.AddEvicence(gameObject.GetComponent<EvidenceItem>());
         }
     }
 }
