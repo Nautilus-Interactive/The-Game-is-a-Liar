@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 206653708}
   - component: {fileID: 206653707}
   - component: {fileID: 206653706}
+  - component: {fileID: 206653709}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Interactable
@@ -211,6 +212,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206653704}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &206653709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206653704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e4d822f3a97914fbda23bc0e46f8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
 --- !u!1 &649646559
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +742,21 @@ PrefabInstance:
     - target: {fileID: 3676438434162297994, guid: 7728860c84c933e4da9b86a35e8f9b88,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676438433208531895, guid: 7728860c84c933e4da9b86a35e8f9b88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676438433302252410, guid: 7728860c84c933e4da9b86a35e8f9b88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676438433064774965, guid: 7728860c84c933e4da9b86a35e8f9b88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
