@@ -2,14 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvidenceItem : MonoBehaviour, InventoryItem {
+public class PickupItem : MonoBehaviour, InventoryItem {
     
     public GameObject UI;
 
-    public string Name => throw new System.NotImplementedException();
+    public string _Name;
+    public string Name {
+        get {
+            return _Name;
+        }
+    }
 
-    public Sprite Image => throw new System.NotImplementedException();
+    public Sprite _Image;
+    public Sprite Image {
+        get {
+            return _Image;
+        }
+    }
 
+    public void OnPickup() {
+        Destroy(this.gameObject);
+    }
+
+    // Functions for object UI
     public void Start() {
         UI.SetActive(false);
     }
@@ -27,9 +42,5 @@ public class EvidenceItem : MonoBehaviour, InventoryItem {
     // Called when the mouse moves outside the object
     public void OnMouseExit() {
         UI.SetActive(false);
-    }
-
-    public void OnPickup() {
-        throw new System.NotImplementedException();
     }
 }

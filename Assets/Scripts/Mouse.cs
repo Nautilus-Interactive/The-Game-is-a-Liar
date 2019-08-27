@@ -6,7 +6,7 @@ using UnityEngine;
 public class Mouse : MonoBehaviour {
 
     public float _maxDistance = 1.0f;
-    public Inventory Inventory;
+    public Inventory inventory;
 
     private void Update() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -26,7 +26,10 @@ public class Mouse : MonoBehaviour {
     private void MouseOver(GameObject gameObject) {
         gameObject.SendMessage("Over");
         if (Input.GetMouseButtonUp(0)) {
-          Inventory.AddItem(gameObject.GetComponent<EvidenceItem>());
+            InventoryItem item = gameObject.GetComponent<InventoryItem>();
+            if (item != null) {
+                inventory.AddItem(item);
+            }
         }
     }
 }
