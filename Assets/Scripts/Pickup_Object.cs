@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup_Object : MonoBehaviour
-{
-    public string name;
+public class EvidenceItem : MonoBehaviour, InventoryItem {
+
     public GameObject UI;
 
     public void Start() {
@@ -26,8 +25,4 @@ public class Pickup_Object : MonoBehaviour
         UI.SetActive(false);
     }
 
-    public void Click() {
-        Global_Functions.add_inventory(this.gameObject);
-        Destroy(this.gameObject);
-    }
 }

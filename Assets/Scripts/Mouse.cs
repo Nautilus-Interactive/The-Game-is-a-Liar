@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interaction_Controller : MonoBehaviour {
-    public float max_distance = 1.0f;
+public class Mouse : MonoBehaviour {
+    public float _maxDistance = 1.0f;
+    public Inventory Inventory;
 
     private void Update() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
             if (hit.transform.gameObject.tag == "Interactable") {
-                if (Vector3.Distance(hit.transform.position, transform.position) < max_distance) {
+                if (Vector3.Distance(hit.transform.position, transform.position) < _maxDistance) {
                     MouseOver(hit.transform.gameObject);
                 }
                 else {
@@ -20,10 +21,10 @@ public class Interaction_Controller : MonoBehaviour {
         }
     }
 
-    void MouseOver(GameObject gameObject) {
+    private void MouseOver(GameObject gameObject) {
         gameObject.SendMessage("Over");
         if (Input.GetMouseButtonUp(0)) {
-            gameObject.SendMessage("Click");
+          Inventory.AddEvicence(gameObject.getComponent<EvidenceItem>());
         }
     }
 }
