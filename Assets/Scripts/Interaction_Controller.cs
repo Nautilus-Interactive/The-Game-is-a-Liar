@@ -13,18 +13,17 @@ public class Interaction_Controller : MonoBehaviour {
                 if (Vector3.Distance(hit.transform.position, transform.position) < max_distance) {
                     MouseOver(hit.transform.gameObject);
                 }
+                else {
+                    hit.transform.gameObject.SendMessage("Out");
+                }
             }
         }
     }
 
-    void MouseOver(GameObject over) {
+    void MouseOver(GameObject gameObject) {
+        gameObject.SendMessage("Over");
         if (Input.GetMouseButtonUp(0)) {
-            Pickup(over);
+            gameObject.SendMessage("Click");
         }
-    }
-
-    void Pickup(GameObject over) {
-        Global_Functions.add_inventory(over);
-        Destroy(over);
     }
 }

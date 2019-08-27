@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Global_Functions
 {
-    private static List<GameObject> inventory = new List<GameObject>();
+    public static List<GameObject> inventory = new List<GameObject>();
 
     public static void start_game() {
         resume_game();
