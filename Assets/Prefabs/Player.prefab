@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771572b85c87cc74e8a2e12db53e3fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxDistance: 1
+  _maxDistance: 2
   inventory: {fileID: 0}
 --- !u!1 &649617169071697055
 GameObject:
