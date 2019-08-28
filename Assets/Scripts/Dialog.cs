@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialog_Interaction : MonoBehaviour
+public class Dialog : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
