@@ -4,26 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class HUD : MonoBehaviour
-{
+public class HUD : MonoBehaviour {
     public Inventory _inventory;
- 
+
     void Start() {
-      StartTime();
+        StartTime();
         _inventory.ItemAdded += ItemAdded;
     }
 
-    void Update()
-    {
+    void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            GameObject.Find("PausePanel").SetActive(true);
+            transform.Find("PausePanel").gameObject.SetActive(true);
             StopTime();
         }
     }
 
     // Methods used for Pause Menu
     public void Resume() {
-        GameObject.Find("PausePanel").SetActive(false);
+        transform.Find("PausePanel").gameObject.SetActive(false);
         StartTime();
     }
 
@@ -39,11 +37,11 @@ public class HUD : MonoBehaviour
     }
 
     private void StopTime() {
-      Time.timeScale = 0;
+        Time.timeScale = 0;
     }
 
     private void StartTime() {
-      Time.timeScale = 1;
+        Time.timeScale = 1;
     }
 
     // Methods used for Inventory
@@ -51,7 +49,7 @@ public class HUD : MonoBehaviour
         Transform inventoryPanel = transform.Find("InventoryPanel");
         foreach (Transform slot in inventoryPanel) {
             Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
-            
+
             if (!image.enabled) {
                 image.enabled = true;
                 image.sprite = e.Item.Image;

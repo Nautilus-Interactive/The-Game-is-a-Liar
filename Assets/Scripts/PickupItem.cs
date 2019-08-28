@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupItem : MonoBehaviour, InventoryItem {
-    
+
     public GameObject UI;
 
     public string _Name;

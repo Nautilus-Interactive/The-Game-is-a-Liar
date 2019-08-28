@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     CharacterController character_controller;
 
     public GameObject body;
@@ -11,14 +10,12 @@ public class Player : MonoBehaviour
     public float _moveSpeed = 6.0f;
     public float _rotateSpeed = 2.0f;
     private Vector3 _moveDirection = Vector3.zero;
-    
-    void Start()
-    {
+
+    void Start() {
         character_controller = GetComponent<CharacterController>();
     }
-    
-    void Update()
-    {
+
+    void Update() {
         _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         _moveDirection *= _moveSpeed;
         _moveDirection += Physics.gravity;
