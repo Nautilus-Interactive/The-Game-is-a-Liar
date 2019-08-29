@@ -101,4 +101,13 @@ public class HUD : MonoBehaviour {
     public void EndDialogue() {
         DialoguePanel.SetActive(false);
     }
+
+    //Methods used for Notes
+    public void ShowNotes() {
+        transform.Find("NotesPanel").gameObject.SetActive(true);
+    }
+
+    public void HideNotes() {
+        transform.Find("NotesPanel").gameObject.SetActive(false);
+    }
 }
