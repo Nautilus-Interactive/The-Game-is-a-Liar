@@ -393,9 +393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 6800627866582704422}
-  dialogue:
-    _name: Test NPC
-    _sentences:
-    - Hello!
-    - I am here to test the dialogue system. Is it working?
-    - Goodbye!
+  _Name: Test NPC
+  _Senteces:
+  - Hello!
+  - I am a test.
+  - Have a good day! Goodbye.

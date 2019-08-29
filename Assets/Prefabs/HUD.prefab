@@ -2052,9 +2052,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 0}
-  DialoguePanel: {fileID: 3739215585066164313}
-  _name: {fileID: 8816259151241007691}
+  _dialogue: {fileID: 0}
+  _notePad: {fileID: 0}
+  _dialogueName: {fileID: 8816259151241007691}
   _dialogueText: {fileID: 5592409439765331036}
+  _notesText: {fileID: 4540920424604576069}
 --- !u!1 &3739215584959221396
 GameObject:
   m_ObjectHideFlags: 0

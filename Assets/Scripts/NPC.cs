@@ -22,8 +22,7 @@ public class NPC : MonoBehaviour, DialogueItem {
     }
 
     public void OnStartDialogue() {
-        Debug.Log("Start Talking");
-        //    FindObjectOfType<HUD>().StartDialogue(dialogue);
+        return;
     }
 
     // Functions for object UI

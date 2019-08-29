@@ -11,8 +11,8 @@ public class HUD : MonoBehaviour {
     public NotePad _notePad;
 
     public Queue<string> _sentences;
-    public TextMeshProUGUI _dialogName;
-    public TextMeshProUGUI _dialogText;
+    public TextMeshProUGUI _dialogueName;
+    public TextMeshProUGUI _dialogueText;
     public TextMeshProUGUI _notesText;
 
     void Start() {
@@ -74,7 +74,7 @@ public class HUD : MonoBehaviour {
 
     // Methods used for Dialog
     private void DialogueStarted(object sender, DialogueItemEventArgs e) {
-        _dialogName.text = e.Dialogue.Name;
+        _dialogueName.text = e.Dialogue.Name;
         _sentences.Clear();
 
         foreach (string sentance in e.Dialogue.Sentences) {
@@ -82,7 +82,7 @@ public class HUD : MonoBehaviour {
         }
 
         DisplayNextSentence();
-        transform.Find("InventoryPanel").gameObject.SetActive(true);
+        transform.Find("DialoguePanel").gameObject.SetActive(true);
     }
 
     public void DisplayNextSentence() {
@@ -96,16 +96,16 @@ public class HUD : MonoBehaviour {
     }
 
     IEnumerator TypeSentence(string sentence) {
-        _dialogText.text = "";
+        _dialogueText.text = "";
 
         foreach (char c in sentence.ToCharArray()) {
-            _dialogText.text += c;
+            _dialogueText.text += c;
             yield return null;
         }
     }
 
     public void EndDialogue() {
-        transform.Find("InventoryPanel").gameObject.SetActive(false);
+        transform.Find("DialoguePanel").gameObject.SetActive(false);
     }
 
     //Methods used for Notes
