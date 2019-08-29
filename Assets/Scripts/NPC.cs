@@ -2,10 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour {
+public class NPC : MonoBehaviour, DialogueItem {
 
     public GameObject UI;
-    public Dialogue dialogue;
+
+    public string _Name;
+    public string Name {
+        get {
+            return _Name;
+        }
+    }
+
+    [TextArea(3, 10)]
+    public string[] _Senteces;
+    public string[] Sentences {
+        get {
+            return _Senteces;
+        }
+    }
+
+    public void OnStartDialogue() {
+        Debug.Log("Start Talking");
+        //    FindObjectOfType<HUD>().StartDialogue(dialogue);
+    }
 
     // Functions for object UI
     public void Start() {
@@ -25,13 +44,5 @@ public class NPC : MonoBehaviour {
     // Called when the mouse moves outside the object
     public void OnMouseExit() {
         UI.SetActive(false);
-    }
-
-    public void StartDialogue() {
-        FindObjectOfType<HUD>().StartDialogue(dialogue);
-    }
-
-    public void OnFinishConversation() {
-        throw new System.NotImplementedException();
     }
 }

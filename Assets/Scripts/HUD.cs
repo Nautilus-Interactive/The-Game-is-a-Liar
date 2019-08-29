@@ -7,16 +7,22 @@ using TMPro;
 
 public class HUD : MonoBehaviour {
     public Inventory _inventory;
+    public Dialogue _dialogue;
+    public NotePad _notePad;
+
     public Queue<string> _sentences;
-    public GameObject DialoguePanel;
-    public TextMeshProUGUI _name;
-    public TextMeshProUGUI _dialogueText;
+    public TextMeshProUGUI _dialogName;
+    public TextMeshProUGUI _dialogText;
+    public TextMeshProUGUI _notesText;
 
     void Start() {
-        StartTime();
         _inventory.ItemAdded += ItemAdded;
+        _dialogue.DialogueStarted += DialogueStarted;
+        _notePad.NoteAdded += NoteAdded;
+
+        _notesText.text = "";
         _sentences = new Queue<string>();
-        DialoguePanel.SetActive(false);
+        StartTime();
     }
 
     void Update() {
@@ -67,16 +73,16 @@ public class HUD : MonoBehaviour {
     }
 
     // Methods used for Dialog
-    public void StartDialogue(Dialogue dialogue) {
-        _name.text = dialogue._name;
+    private void DialogueStarted(object sender, DialogueItemEventArgs e) {
+        _dialogName.text = e.Dialogue.Name;
         _sentences.Clear();
 
-        foreach (string sentance in dialogue._sentences) {
+        foreach (string sentance in e.Dialogue.Sentences) {
             _sentences.Enqueue(sentance);
         }
 
         DisplayNextSentence();
-        DialoguePanel.SetActive(true);
+        transform.Find("InventoryPanel").gameObject.SetActive(true);
     }
 
     public void DisplayNextSentence() {
@@ -90,19 +96,25 @@ public class HUD : MonoBehaviour {
     }
 
     IEnumerator TypeSentence(string sentence) {
-        _dialogueText.text = "";
+        _dialogText.text = "";
 
         foreach (char c in sentence.ToCharArray()) {
-            _dialogueText.text += c;
+            _dialogText.text += c;
             yield return null;
         }
     }
 
     public void EndDialogue() {
-        DialoguePanel.SetActive(false);
+        transform.Find("InventoryPanel").gameObject.SetActive(false);
     }
 
     //Methods used for Notes
+    private void NoteAdded(object sender, NoteItemEventArgs e) {
+        string note = e.Note.Name;
+        note += "\n" + e.Note.Note;
+        _notesText.text += note;
+    }
+
     public void ShowNotes() {
         transform.Find("NotesPanel").gameObject.SetActive(true);
     }

@@ -7,6 +7,7 @@ public class Mouse : MonoBehaviour {
 
     public float _maxDistance = 1.0f;
     public Inventory inventory;
+    public Dialogue dialogue;
 
     private void Update() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,7 +38,10 @@ public class Mouse : MonoBehaviour {
             case "NPC":
                 gameObject.SendMessage("Over");
                 if (Input.GetMouseButtonUp(0)) {
-                    gameObject.SendMessage("StartDialogue");
+                    DialogueItem item = gameObject.GetComponent<DialogueItem>();
+                    if (item != null) {
+                        dialogue.StartDialogue(item);
+                    }
                 }
                 break;
         }

@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class NotePad : MonoBehaviour
 {
-    public List<WitnessNote> collectedNotes = new List<WitnessNote>();
+    public List<NoteItem> collectedNotes = new List<NoteItem>();
 
-    public event EventHandler<WitnessNoteEventArgs> NoteAdded;
+    public event EventHandler<NoteItemEventArgs> NoteAdded;
 
-    public void AddNote(WitnessNote note) {
+    public void AddNote(NoteItem note) {
         if (!collectedNotes.Contains(note)) {
             collectedNotes.Add(note);
-            note.OnFinishConversation();
+            note.OnPickup();
 
             if (NoteAdded != null) {
-                NoteAdded(this, new WitnessNoteEventArgs(note));
+                NoteAdded(this, new NoteItemEventArgs(note));
             }
         }
     }
