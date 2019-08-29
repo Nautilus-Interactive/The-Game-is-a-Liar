@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUD : MonoBehaviour {
     public Inventory _inventory;
+    public Queue<string> _sentences;
+    public GameObject DialoguePanel;
+    public TextMeshProUGUI _name;
+    public TextMeshProUGUI _dialogueText;
 
     void Start() {
         StartTime();
         _inventory.ItemAdded += ItemAdded;
+        _sentences = new Queue<string>();
+        DialoguePanel.SetActive(false);
     }
 
     void Update() {
@@ -60,11 +67,38 @@ public class HUD : MonoBehaviour {
     }
 
     // Methods used for Dialog
-    public void ShowDialog() {
-        GameObject.Find("DialogPanel").SetActive(true);
+    public void StartDialogue(Dialogue dialogue) {
+        _name.text = dialogue._name;
+        _sentences.Clear();
+
+        foreach (string sentance in dialogue._sentences) {
+            _sentences.Enqueue(sentance);
+        }
+
+        DisplayNextSentence();
+        DialoguePanel.SetActive(true);
     }
 
-    public void HideDialog() {
-        GameObject.Find("DialogPanel").SetActive(false);
+    public void DisplayNextSentence() {
+        if (_sentences.Count == 0) {
+            EndDialogue();
+            return;
+        }
+        string sentence = _sentences.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence) {
+        _dialogueText.text = "";
+
+        foreach (char c in sentence.ToCharArray()) {
+            _dialogueText.text += c;
+            yield return null;
+        }
+    }
+
+    public void EndDialogue() {
+        DialoguePanel.SetActive(false);
     }
 }

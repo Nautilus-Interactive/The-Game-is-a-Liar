@@ -12,7 +12,7 @@ public class Mouse : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
-            if (hit.transform.gameObject.tag == "Interactable") {
+            if (hit.transform.gameObject.tag == "Interactable" || hit.transform.gameObject.tag == "NPC") {
                 if (Vector3.Distance(hit.transform.position, transform.position) < _maxDistance) {
                     MouseOver(hit.transform.gameObject);
                 }
@@ -24,12 +24,22 @@ public class Mouse : MonoBehaviour {
     }
 
     private void MouseOver(GameObject gameObject) {
-        gameObject.SendMessage("Over");
-        if (Input.GetMouseButtonUp(0)) {
-            InventoryItem item = gameObject.GetComponent<InventoryItem>();
-            if (item != null) {
-                inventory.AddItem(item);
-            }
+        switch(gameObject.tag) {
+            case "Interactable":
+                gameObject.SendMessage("Over");
+                if (Input.GetMouseButtonUp(0)) {
+                    InventoryItem item = gameObject.GetComponent<InventoryItem>();
+                    if (item != null) {
+                        inventory.AddItem(item);
+                    }
+                }
+                break;
+            case "NPC":
+                gameObject.SendMessage("Over");
+                if (Input.GetMouseButtonUp(0)) {
+                    gameObject.SendMessage("StartDialogue");
+                }
+                break;
         }
     }
 }
