@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-    private const int SLOTS = 6;
+    private const int SLOTS = 5;
 
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
 
