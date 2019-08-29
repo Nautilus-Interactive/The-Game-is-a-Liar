@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
-{
+public class NPC : MonoBehaviour {
 
     public GameObject UI;
     public Dialogue dialogue;
@@ -30,5 +29,9 @@ public class NPC : MonoBehaviour
 
     public void StartDialogue() {
         FindObjectOfType<HUD>().StartDialogue(dialogue);
+    }
+
+    public void OnFinishConversation() {
+        throw new System.NotImplementedException();
     }
 }
