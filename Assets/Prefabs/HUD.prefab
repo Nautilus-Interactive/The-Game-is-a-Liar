@@ -2057,6 +2057,7 @@ MonoBehaviour:
   _dialogueName: {fileID: 8816259151241007691}
   _dialogueText: {fileID: 5592409439765331036}
   _notesText: {fileID: 4540920424604576069}
+  _talkingTo: {fileID: 0}
 --- !u!1 &3739215584959221396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,8 +2799,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

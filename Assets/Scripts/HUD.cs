@@ -112,7 +112,6 @@ public class HUD : MonoBehaviour {
 
     public void EndDialogue() {
         transform.Find("DialoguePanel").gameObject.SetActive(false);
-        Debug.Log(_talkingTo);
         NoteItem note = _talkingTo.GetComponent<NoteItem>();
         if (note != null) {
             _notePad.AddNote(note);
@@ -121,8 +120,8 @@ public class HUD : MonoBehaviour {
 
     //Methods used for Notes
     private void NoteAdded(object sender, NoteItemEventArgs e) {
-        string note = e.Note.Name;
-        note += "\n" + e.Note.Note;
+        string note = "<b><size=100%>" + e.Note.Name + ":</b>";
+        note += "\n\t<size=80%>" + e.Note.Note;
         _notesText.text += note;
     }
 
