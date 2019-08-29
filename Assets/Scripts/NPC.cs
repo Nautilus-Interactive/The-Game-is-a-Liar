@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour, DialogueItem {
+public class NPC : MonoBehaviour, DialogueItem, NoteItem {
 
     public GameObject UI;
 
@@ -21,8 +21,20 @@ public class NPC : MonoBehaviour, DialogueItem {
         }
     }
 
-    public void OnStartDialogue() {
+    [TextArea(3, 10)]
+    public string _Note;
+    public string Note {
+        get {
+            return _Note;
+        }
+    }
+
+    public void OnPickup() {
         return;
+    }
+
+    public void OnStartDialogue() {
+        GameObject.Find("HUD").GetComponent<HUD>().SetCurrentInteraction(this.gameObject);
     }
 
     // Functions for object UI

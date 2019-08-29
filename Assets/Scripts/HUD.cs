@@ -15,6 +15,8 @@ public class HUD : MonoBehaviour {
     public TextMeshProUGUI _dialogueText;
     public TextMeshProUGUI _notesText;
 
+    public GameObject _talkingTo;
+
     void Start() {
         _inventory.ItemAdded += ItemAdded;
         _dialogue.DialogueStarted += DialogueStarted;
@@ -104,8 +106,17 @@ public class HUD : MonoBehaviour {
         }
     }
 
+    public void SetCurrentInteraction(GameObject target) {
+        _talkingTo = target;
+    }
+
     public void EndDialogue() {
         transform.Find("DialoguePanel").gameObject.SetActive(false);
+        Debug.Log(_talkingTo);
+        NoteItem note = _talkingTo.GetComponent<NoteItem>();
+        if (note != null) {
+            _notePad.AddNote(note);
+        }
     }
 
     //Methods used for Notes
