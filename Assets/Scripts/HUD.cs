@@ -20,6 +20,7 @@ public class HUD : MonoBehaviour {
     public GameObject _dialogPanel;
     public GameObject _playerName;
     public GameObject _otherName;
+    public TextMeshProUGUI _continueButton;
 
     public GameObject _inventoryPanel;
 
@@ -30,12 +31,16 @@ public class HUD : MonoBehaviour {
     public GameObject _pausePanel;
 
     private GameObject _talkingTo;
+    private DialogueSentence _currentSentence;
+    private bool _typeSentenceRunning;
+    private DialogueItem _currentDialogue;
 
     void Start() {
         _inventory.ItemAdded += ItemAdded;
         _dialogue.DialogueStarted += DialogueStarted;
         _notePad.NoteAdded += NoteAdded;
 
+        _typeSentenceRunning = false;
         _notesText.text = "";
         _sentences = new Queue<DialogueSentence>();
         StartTime();
@@ -45,6 +50,15 @@ public class HUD : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             _pausePanel.SetActive(true);
             StopTime();
+        }
+
+        switch (_typeSentenceRunning) {
+            case true:
+                _continueButton.text = "Skip...";
+                break;
+            case false:
+                _continueButton.text = "Continue...";
+                break;
         }
     }
 
@@ -104,10 +118,10 @@ public class HUD : MonoBehaviour {
 
     // Methods used for Dialog
     private void DialogueStarted(object sender, DialogueItemEventArgs e) {
-        _dialogueName.text = e.Dialogue.Name;
+        _currentDialogue = e.Dialogue;
         _sentences.Clear();
 
-        foreach (DialogueSentence sentance in e.Dialogue.Sentences) {
+        foreach (DialogueSentence sentance in _currentDialogue.Sentences) {
             _sentences.Enqueue(sentance);
         }
 
@@ -116,24 +130,44 @@ public class HUD : MonoBehaviour {
     }
 
     public void DisplayNextSentence() {
-        if (_sentences.Count == 0) {
-            EndDialogue();
-            return;
+        if (_typeSentenceRunning) {
+            _typeSentenceRunning = false;
+            StopAllCoroutines();
+            _dialogueText.text = _currentSentence.Text;
         }
-        DialogueSentence sentence = _sentences.Dequeue();
-        _otherName.SetActive(!sentence.Player);
-        _playerName.SetActive(sentence.Player);
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence.Text));
+        else {
+            if (_sentences.Count == 0) {
+                EndDialogue();
+                return;
+            }
+            _currentSentence = _sentences.Dequeue();
+            SetOtherName();
+            _otherName.SetActive(!_currentSentence.Player);
+            _playerName.SetActive(_currentSentence.Player);
+            StartCoroutine(TypeSentence(_currentSentence.Text));
+        }
+    }
+
+    public void SetOtherName() {
+        switch (_currentSentence.KnowName) {
+            case true:
+                _dialogueName.text = _currentDialogue.Name;
+                break;
+            case false:
+                _dialogueName.text = _currentDialogue.TempName;
+                break;
+        }
     }
 
     IEnumerator TypeSentence(string sentence) {
+        _typeSentenceRunning = true;
         _dialogueText.text = "";
 
         foreach (char c in sentence.ToCharArray()) {
             _dialogueText.text += c;
             yield return null;
         }
+        _typeSentenceRunning = false;
     }
 
     public void SetCurrentInteraction(GameObject target) {

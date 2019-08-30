@@ -10,6 +10,13 @@ public class NPC : InteractableObject, DialogueItem, NoteItem {
         }
     }
     
+    public string _TempName;
+    public string TempName {
+        get {
+            return _TempName;
+        }
+    }
+    
     public DialogueSentence[] _Senteces;
     public DialogueSentence[] Sentences {
         get {
