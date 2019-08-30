@@ -1430,8 +1430,9 @@ GameObject:
   - component: {fileID: 6288296274315462797}
   - component: {fileID: 3691897379122380827}
   - component: {fileID: 4285418086100389815}
+  - component: {fileID: 1873908941767381911}
   m_Layer: 0
-  m_Name: Slot 1 Background
+  m_Name: Slot 2 Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1539,10 +1540,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 443572949387992508}
         m_MethodName: ShowDescription
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1873908941767381911}
+          m_ObjectArgumentAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1550,6 +1551,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1873908941767381911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851982445997798181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad26307387221647a32741f4ac8a6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filled: 0
+  _name: 
+  _description: 
 --- !u!1 &2966166030972921442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,8 +3658,9 @@ GameObject:
   - component: {fileID: 3901508763190329636}
   - component: {fileID: 3626832356602121697}
   - component: {fileID: 5708209968249439908}
+  - component: {fileID: 800196653129175490}
   m_Layer: 0
-  m_Name: Slot 1 Background
+  m_Name: Slot 4 Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3751,10 +3768,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 443572949387992508}
         m_MethodName: ShowDescription
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 800196653129175490}
+          m_ObjectArgumentAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3762,6 +3779,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &800196653129175490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317531415350708426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad26307387221647a32741f4ac8a6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filled: 0
+  _name: 
+  _description: 
 --- !u!1 &5611504273748090387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,8 +3963,9 @@ GameObject:
   - component: {fileID: 1874893893925998249}
   - component: {fileID: 8181824843231962187}
   - component: {fileID: 7160829391897510041}
+  - component: {fileID: 5286207735631277835}
   m_Layer: 0
-  m_Name: Slot 1 Background
+  m_Name: Slot 5 Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4040,10 +4073,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 443572949387992508}
         m_MethodName: ShowDescription
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5286207735631277835}
+          m_ObjectArgumentAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4051,6 +4084,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &5286207735631277835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725699910743019073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad26307387221647a32741f4ac8a6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filled: 0
+  _name: 
+  _description: 
 --- !u!1 &5962272453243738713
 GameObject:
   m_ObjectHideFlags: 0
@@ -4135,6 +4183,7 @@ GameObject:
   - component: {fileID: 614081529371855065}
   - component: {fileID: 951023866884975913}
   - component: {fileID: 5155682180463593268}
+  - component: {fileID: 6159628608019913706}
   m_Layer: 0
   m_Name: Slot 1 Background
   m_TagString: Untagged
@@ -4244,10 +4293,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 443572949387992508}
         m_MethodName: ShowDescription
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 6159628608019913706}
+          m_ObjectArgumentAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4255,6 +4304,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &6159628608019913706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420882649968046624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad26307387221647a32741f4ac8a6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filled: 0
+  _name: 
+  _description: 
 --- !u!1 &6481002592848248332
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,8 +5251,9 @@ GameObject:
   - component: {fileID: 5217704485335907707}
   - component: {fileID: 5290841732450641041}
   - component: {fileID: 6112128787351426373}
+  - component: {fileID: 81214466900361445}
   m_Layer: 0
-  m_Name: Slot 1 Background
+  m_Name: Slot 3 Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5296,10 +5361,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 443572949387992508}
         m_MethodName: ShowDescription
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 81214466900361445}
+          m_ObjectArgumentAssemblyTypeName: InventorySlot, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5307,6 +5372,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &81214466900361445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042497624632597119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad26307387221647a32741f4ac8a6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filled: 0
+  _name: 
+  _description: 
 --- !u!1 &9155409365881659256
 GameObject:
   m_ObjectHideFlags: 0

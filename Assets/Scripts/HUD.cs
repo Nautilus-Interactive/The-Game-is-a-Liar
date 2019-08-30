@@ -65,21 +65,25 @@ public class HUD : MonoBehaviour {
     private void ItemAdded(object sender, InventoryItemEventArgs e) {
         Transform inventoryPanel = transform.Find("InventoryPanel");
         foreach (Transform slot in inventoryPanel) {
-            Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
-
-            if (!image.enabled) {
+            InventorySlot inventorySlot = slot.GetChild(0).GetComponent<InventorySlot>();
+            if (!inventorySlot._filled) {
+                inventorySlot._filled = true;
+                inventorySlot._name = e.Item.Name;
+                inventorySlot._description = e.Item.Description;
+                Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
                 image.enabled = true;
                 image.sprite = e.Item.Image;
-                ShowDescription();
+                ShowDescription(inventorySlot);
                 break;
             }
         }
     }
 
     // Methods used for Item Description
-    public void ShowDescription() {
-        _itemDescriptionName.text = "Test";
-        _itemDescription.text = "Test Description";
+    public void ShowDescription(InventorySlot slot) {
+        if (!slot._filled) { return; }
+        _itemDescriptionName.text = slot._name;
+        _itemDescription.text = slot._description;
         transform.Find("ItemDescriptionPanel").gameObject.SetActive(true);
     }
 

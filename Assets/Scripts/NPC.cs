@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour, DialogueItem, NoteItem {
-
-    public GameObject UI;
-
+public class NPC : InteractableObject, DialogueItem, NoteItem {
     public string _Name;
     public string Name {
         get {
@@ -35,25 +32,5 @@ public class NPC : MonoBehaviour, DialogueItem, NoteItem {
 
     public void OnStartDialogue() {
         GameObject.Find("HUD").GetComponent<HUD>().SetCurrentInteraction(this.gameObject);
-    }
-
-    // Functions for object UI
-    public void Start() {
-        UI.SetActive(false);
-    }
-
-    // Called by the mouse ray when inside range
-    public void Over() {
-        UI.SetActive(true);
-    }
-
-    // Called by the mouse ray when outside range
-    public void Out() {
-        UI.SetActive(false);
-    }
-
-    // Called when the mouse moves outside the object
-    public void OnMouseExit() {
-        UI.SetActive(false);
     }
 }
