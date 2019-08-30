@@ -6743,6 +6743,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6480606437210630433, guid: db833225de7516e46bbd48a653ffb4f3,
+        type: 3}
+      propertyPath: _prompt
+      value: Pickup
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db833225de7516e46bbd48a653ffb4f3, type: 3}
 --- !u!1 &1968103462

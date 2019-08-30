@@ -4,12 +4,13 @@ using UnityEngine;
 using TMPro;
 
 public class InteractableObject : MonoBehaviour {
+    public string _prompt;
     public GameObject UI;
 
     // Functions for object UI
     public void Start() {
         UI.SetActive(false);
-        UI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+        UI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = _prompt;
     }
 
     // Called by the mouse ray when inside range

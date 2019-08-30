@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5996fe5ca506bc45aaeda83b0d80203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Pickup
   UI: {fileID: 2430623387072276602}
   _Name: Test Item
   _Description: This a test time. The real description will get put here on the real
