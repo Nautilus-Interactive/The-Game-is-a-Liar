@@ -317,6 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 2430623387072276602}
   _Name: Test Item
+  _Description: This a test time. The real description will get put here on the real
+    thing.
   _Image: {fileID: 21300000, guid: 62ea03ade0b758747844fd0d0934d076, type: 3}
 --- !u!1 &2430623388234457349
 GameObject:

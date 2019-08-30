@@ -5,6 +5,7 @@ using UnityEngine;
 
 public interface InventoryItem {
     string Name { get; }
+    string Description { get; }
     Sprite Image { get; }
     void OnPickup();
 }

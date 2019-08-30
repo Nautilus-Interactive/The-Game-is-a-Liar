@@ -14,8 +14,10 @@ public class HUD : MonoBehaviour {
     public TextMeshProUGUI _dialogueName;
     public TextMeshProUGUI _dialogueText;
     public TextMeshProUGUI _notesText;
+    public TextMeshProUGUI _itemDescriptionName;
+    public TextMeshProUGUI _itemDescription;
 
-    public GameObject _talkingTo;
+    private GameObject _talkingTo;
 
     void Start() {
         _inventory.ItemAdded += ItemAdded;
@@ -68,10 +70,21 @@ public class HUD : MonoBehaviour {
             if (!image.enabled) {
                 image.enabled = true;
                 image.sprite = e.Item.Image;
-
+                ShowDescription();
                 break;
             }
         }
+    }
+
+    // Methods used for Item Description
+    public void ShowDescription() {
+        _itemDescriptionName.text = "Test";
+        _itemDescription.text = "Test Description";
+        transform.Find("ItemDescriptionPanel").gameObject.SetActive(true);
+    }
+
+    public void HideDescription() {
+        transform.Find("ItemDescriptionPanel").gameObject.SetActive(false);
     }
 
     // Methods used for Dialog

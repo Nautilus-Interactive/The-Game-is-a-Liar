@@ -13,6 +13,14 @@ public class PickupItem : MonoBehaviour, InventoryItem {
         }
     }
 
+    [TextArea(3, 10)]
+    public string _Description;
+    public string Description {
+        get {
+            return _Description;
+        }
+    }
+
     public Sprite _Image;
     public Sprite Image {
         get {
