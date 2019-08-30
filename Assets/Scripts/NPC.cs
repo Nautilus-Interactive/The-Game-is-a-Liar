@@ -9,10 +9,9 @@ public class NPC : InteractableObject, DialogueItem, NoteItem {
             return _Name;
         }
     }
-
-    [TextArea(3, 10)]
-    public string[] _Senteces;
-    public string[] Sentences {
+    
+    public DialogueSentence[] _Senteces;
+    public DialogueSentence[] Sentences {
         get {
             return _Senteces;
         }

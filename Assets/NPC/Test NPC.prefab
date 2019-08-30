@@ -395,7 +395,14 @@ MonoBehaviour:
   UI: {fileID: 6800627866582704422}
   _Name: Test NPC
   _Senteces:
-  - Hello!
-  - I am a test.
-  - Have a good day! Goodbye.
+  - Player: 1
+    Text: Hello
+  - Player: 0
+    Text: Hi!
+  - Player: 1
+    Text: How are you?
+  - Player: 0
+    Text: Pretty great.
+  - Player: 0
+    Text: How about yourself!
   _Note: Here is what I have to say....

@@ -10,12 +10,24 @@ public class HUD : MonoBehaviour {
     public Dialogue _dialogue;
     public NotePad _notePad;
 
-    public Queue<string> _sentences;
+    public Queue<DialogueSentence> _sentences;
     public TextMeshProUGUI _dialogueName;
     public TextMeshProUGUI _dialogueText;
     public TextMeshProUGUI _notesText;
     public TextMeshProUGUI _itemDescriptionName;
     public TextMeshProUGUI _itemDescription;
+
+    public GameObject _dialogPanel;
+    public GameObject _playerName;
+    public GameObject _otherName;
+
+    public GameObject _inventoryPanel;
+
+    public GameObject _itemDescriptionPanel;
+
+    public GameObject _notesPanel;
+
+    public GameObject _pausePanel;
 
     private GameObject _talkingTo;
 
@@ -25,20 +37,20 @@ public class HUD : MonoBehaviour {
         _notePad.NoteAdded += NoteAdded;
 
         _notesText.text = "";
-        _sentences = new Queue<string>();
+        _sentences = new Queue<DialogueSentence>();
         StartTime();
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            transform.Find("PausePanel").gameObject.SetActive(true);
+            _pausePanel.SetActive(true);
             StopTime();
         }
     }
 
     // Methods used for Pause Menu
     public void Resume() {
-        transform.Find("PausePanel").gameObject.SetActive(false);
+        _pausePanel.gameObject.SetActive(false);
         StartTime();
     }
 
@@ -63,8 +75,7 @@ public class HUD : MonoBehaviour {
 
     // Methods used for Inventory
     private void ItemAdded(object sender, InventoryItemEventArgs e) {
-        Transform inventoryPanel = transform.Find("InventoryPanel");
-        foreach (Transform slot in inventoryPanel) {
+        foreach (Transform slot in _inventoryPanel.transform) {
             InventorySlot inventorySlot = slot.GetChild(0).GetComponent<InventorySlot>();
             if (!inventorySlot._filled) {
                 inventorySlot._filled = true;
@@ -84,11 +95,11 @@ public class HUD : MonoBehaviour {
         if (!slot._filled) { return; }
         _itemDescriptionName.text = slot._name;
         _itemDescription.text = slot._description;
-        transform.Find("ItemDescriptionPanel").gameObject.SetActive(true);
+        _itemDescriptionPanel.SetActive(true);
     }
 
     public void HideDescription() {
-        transform.Find("ItemDescriptionPanel").gameObject.SetActive(false);
+        _itemDescriptionPanel.SetActive(false);
     }
 
     // Methods used for Dialog
@@ -96,12 +107,12 @@ public class HUD : MonoBehaviour {
         _dialogueName.text = e.Dialogue.Name;
         _sentences.Clear();
 
-        foreach (string sentance in e.Dialogue.Sentences) {
+        foreach (DialogueSentence sentance in e.Dialogue.Sentences) {
             _sentences.Enqueue(sentance);
         }
 
+        _dialogPanel.SetActive(true);
         DisplayNextSentence();
-        transform.Find("DialoguePanel").gameObject.SetActive(true);
     }
 
     public void DisplayNextSentence() {
@@ -109,9 +120,11 @@ public class HUD : MonoBehaviour {
             EndDialogue();
             return;
         }
-        string sentence = _sentences.Dequeue();
+        DialogueSentence sentence = _sentences.Dequeue();
+        _otherName.SetActive(!sentence.Player);
+        _playerName.SetActive(sentence.Player);
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence.Text));
     }
 
     IEnumerator TypeSentence(string sentence) {
@@ -128,7 +141,7 @@ public class HUD : MonoBehaviour {
     }
 
     public void EndDialogue() {
-        transform.Find("DialoguePanel").gameObject.SetActive(false);
+        _dialogPanel.SetActive(false);
         NoteItem note = _talkingTo.GetComponent<NoteItem>();
         if (note != null) {
             _notePad.AddNote(note);
@@ -143,10 +156,10 @@ public class HUD : MonoBehaviour {
     }
 
     public void ShowNotes() {
-        transform.Find("NotesPanel").gameObject.SetActive(true);
+        _notesPanel.SetActive(true);
     }
 
     public void HideNotes() {
-        transform.Find("NotesPanel").gameObject.SetActive(false);
+        _notesPanel.SetActive(false);
     }
 }
