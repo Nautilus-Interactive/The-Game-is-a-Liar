@@ -6,17 +6,21 @@ public class Player : MonoBehaviour {
     CharacterController character_controller;
 
     public GameObject body;
-
+    private Animator animation;
     public float _moveSpeed = 6.0f;
     public float _rotateSpeed = 2.0f;
     private Vector3 _moveDirection = Vector3.zero;
 
     void Start() {
         character_controller = GetComponent<CharacterController>();
+        animation = body.GetComponent<Animator>();
     }
 
     void Update() {
         _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+
+        animation.SetBool("Waling", _moveDirection.magnitude > 0.0f);
+
         _moveDirection *= _moveSpeed;
 
         _moveDirection += Physics.gravity;
