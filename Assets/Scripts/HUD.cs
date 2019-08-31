@@ -31,6 +31,7 @@ public class HUD : MonoBehaviour {
     public GameObject _pausePanel;
 
     public GameObject _accusationsPanel;
+    public GameObject _canAccuse;
 
     private GameObject _talkingTo;
     private DialogueSentence _currentSentence;
@@ -210,5 +211,13 @@ public class HUD : MonoBehaviour {
 
     public void MakeChoice(GameObject button) {
         SceneManager.LoadScene("Ending");
+    }
+
+    public void ShowCanAccuse() {
+        _canAccuse.SetActive(true);
+    }
+
+    public void HideCanAccuse() {
+        _canAccuse.SetActive(false);
     }
 }

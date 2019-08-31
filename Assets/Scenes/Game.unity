@@ -3596,6 +3596,51 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1780679135417189359, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780679135417189359, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780679135417189359, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780679135417189359, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780679135417189359, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024614511768104348, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024614511768104348, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024614511768104348, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024614511768104348, guid: de1865068f1501a439efe34801867b3a,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de1865068f1501a439efe34801867b3a, type: 3}
 --- !u!114 &808792050 stripped
@@ -8706,7 +8751,7 @@ PrefabInstance:
     - target: {fileID: 7102120159038247660, guid: 6152cf315eef0274d9624d63edb971dc,
         type: 3}
       propertyPath: evidenceNeeded
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4241873590654696206, guid: 6152cf315eef0274d9624d63edb971dc,
         type: 3}
