@@ -225,6 +225,11 @@ PrefabInstance:
       propertyPath: _TempName
       value: Mysterious Person
       objectReference: {fileID: 0}
+    - target: {fileID: 6800627866868820104, guid: 0c99bd23273dea84da6b59754d7ffa16,
+        type: 3}
+      propertyPath: _Note
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6800627866868820105, guid: 0c99bd23273dea84da6b59754d7ffa16,
         type: 3}
       propertyPath: m_LocalPosition.x
