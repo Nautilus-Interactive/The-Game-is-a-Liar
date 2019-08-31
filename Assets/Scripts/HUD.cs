@@ -30,6 +30,8 @@ public class HUD : MonoBehaviour {
 
     public GameObject _pausePanel;
 
+    public GameObject _accusationsPanel;
+
     private GameObject _talkingTo;
     private DialogueSentence _currentSentence;
     private bool _typeSentenceRunning;
@@ -195,5 +197,18 @@ public class HUD : MonoBehaviour {
 
     public void HideNotes() {
         _notesPanel.SetActive(false);
+    }
+
+    // Methods used for Accusations
+    public void ShowAccusations() {
+        _accusationsPanel.SetActive(true);
+    }
+
+    public void HideAccusations() {
+        _accusationsPanel.SetActive(false);
+    }
+
+    public void MakeChoice(GameObject button) {
+
     }
 }
