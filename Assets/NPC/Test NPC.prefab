@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6800627866868820111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0.5, z: -3.29}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6800627866582704417}
@@ -392,17 +392,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2d714f532ea9e44a24325e13b168b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: 
   UI: {fileID: 6800627866582704422}
   _Name: Test NPC
+  _TempName: 
   _Senteces:
   - Player: 1
+    KnowName: 0
     Text: Hello
   - Player: 0
+    KnowName: 0
     Text: Hi!
   - Player: 1
+    KnowName: 0
     Text: How are you?
   - Player: 0
+    KnowName: 0
     Text: Pretty great.
   - Player: 0
+    KnowName: 0
     Text: How about yourself!
   _Note: Here is what I have to say....
