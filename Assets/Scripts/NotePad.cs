@@ -19,4 +19,8 @@ public class NotePad : MonoBehaviour
             }
         }
     }
+
+    public int NoteAmount() {
+        return collectedNotes.Count;
+    }
 }

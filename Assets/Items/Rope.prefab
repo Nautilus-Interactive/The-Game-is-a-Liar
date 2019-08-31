@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2430623387967877272, guid: db833225de7516e46bbd48a653ffb4f3,
         type: 3}
       propertyPath: m_Name
-      value: Test Item Variant 2
+      value: Rope
       objectReference: {fileID: 0}
     - target: {fileID: 2430623387967877273, guid: db833225de7516e46bbd48a653ffb4f3,
         type: 3}

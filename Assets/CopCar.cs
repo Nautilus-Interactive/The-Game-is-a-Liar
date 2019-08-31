@@ -7,9 +7,16 @@ public class CopCar : MonoBehaviour
 {
     public GameObject UI;
     public HUD hud;
+    public int evidenceNeeded;
+
+    private bool canAccuse = false;
 
     private void OnMouseOver() {
-        UI.SetActive(true);
+
+        canAccuse = (hud._inventory.EvidenceAmount() + hud._notePad.NoteAmount()) >= evidenceNeeded;
+        if (canAccuse) {
+            UI.SetActive(true);
+        }
     }
 
     private void OnMouseExit() {
@@ -17,6 +24,8 @@ public class CopCar : MonoBehaviour
     }
 
     private void OnMouseUp() {
-        hud.ShowAccusations();
+        if (canAccuse) {
+            hud.ShowAccusations();
+        }
     }
 }

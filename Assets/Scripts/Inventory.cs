@@ -20,4 +20,8 @@ public class Inventory : MonoBehaviour {
             }
         }
     }
+
+    public int EvidenceAmount() {
+        return inventoryItems.Count;
+    }
 }
