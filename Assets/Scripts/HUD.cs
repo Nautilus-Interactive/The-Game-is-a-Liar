@@ -209,6 +209,6 @@ public class HUD : MonoBehaviour {
     }
 
     public void MakeChoice(GameObject button) {
-
+        SceneManager.LoadScene("Ending");
     }
 }

@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour {
 
     public void StartGame() {
         Debug.Log("Loading Game Scene...");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Starting");
     }
 
     // Options Screen Methods
